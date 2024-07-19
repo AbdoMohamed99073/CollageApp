@@ -23,6 +23,15 @@ class Collage extends Model
         return $this->belongsTo(User::class,'user_id','id');
     }
 
+    protected function faculty()
+    {
+        return $this->hasMany(Faculty::class,'collage_id');
+    }
+
+    public function building()
+    {
+        return $this->hasMany(Buildings::class,'collage_id','id');
+    }
 
 
 }

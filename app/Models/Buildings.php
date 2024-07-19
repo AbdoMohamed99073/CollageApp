@@ -14,6 +14,15 @@ class Buildings extends Model
 
     public function faculty()
     {
-        return $this->belongsTo(Faculty::class,'building_id');
+        return $this->hasOne(Faculty::class,'building_id','id');
+    }
+
+    public function collage()
+    {
+        return $this->belongsTo(Collage::class,'collage_id','id');
+    }
+    public function classroom()
+    {
+        return $this->hasMany(ClassRoom::class,'Buliding_id');
     }
 }
