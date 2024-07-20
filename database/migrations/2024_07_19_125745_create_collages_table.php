@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('totalStudent');
             $table->string('image')->nullable();
             $table->foreignId('user_id')->nullable()->constrained('users','id')->nullOnDelete();
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 

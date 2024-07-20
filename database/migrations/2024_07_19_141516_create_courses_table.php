@@ -17,7 +17,9 @@ return new class extends Migration
             $table->foreignId('book_id')->nullable()->constrained('books','id')->nullOnDelete();
             $table->foreignId('teacher_id')->nullable()->constrained('teachers','id')->nullOnDelete();
             $table->foreignId('faculty_id')->nullable()->constrained('faculties','id')->nullOnDelete();
-            $table->timestamp('created_at');
+            $table->timestamps();
+
+            
         });
     }
 

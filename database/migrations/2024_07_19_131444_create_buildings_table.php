@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->foreignId('collage_id')->nullable()->constrained('collages','id')->nullOnDelete();
-            $table->string('image');
-            $table->timestamp('created_at');
+            $table->string('image')->nullable();
+            $table->timestamps();
         });
     }
 

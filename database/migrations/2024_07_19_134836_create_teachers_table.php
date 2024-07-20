@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('gender',['male','female']);
+            $table->enum('gender',['male','female'])->default('male');
             $table->date('date_birth');
             $table->string('phone_number');
             $table->foreignId('faculty_id')->nullable()->constrained('faculties','id')->nullOnDelete();
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 

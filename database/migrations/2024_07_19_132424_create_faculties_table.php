@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('collage_id')->nullable()->constrained('collages','id')->nullOnDelete();
             $table->foreignId('Manger_id')->nullable()->constrained('users','id')->nullOnDelete();  
             $table->foreignId('building_id')->nullable()->constrained('buildings','id')->nullOnDelete();           
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 

@@ -17,6 +17,11 @@ class Collage extends Model
         'created_at',
     ];
 
+    protected $hidden = [
+        'updated_at',
+    ];
+
+
 
     public function users()
     {
