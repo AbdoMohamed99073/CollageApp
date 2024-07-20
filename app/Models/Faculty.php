@@ -15,7 +15,7 @@ class Faculty extends Model
         return $this->belongsTo(Buildings::class,'building_id' , 'id');
     }
     
-    protected function collage()
+    public function collage()
     {
         return $this->belongsTo(Collage::class,'collage_id');
     }
