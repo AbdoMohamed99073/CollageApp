@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  */
-class StudentCoursesFactory extends Factory
+class StudentCourseFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,7 @@ class StudentCoursesFactory extends Factory
     public function definition(): array
     {
         return [
-            'student_id' => Student::inRandomOrder()->first()->id , 
+            'student_id' => Student::inRandomOrder()->first()->id ,
             'course_id' => Course::inRandomOrder()->first()->id ,
         ];
     }

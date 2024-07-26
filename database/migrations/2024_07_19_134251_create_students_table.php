@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->enum('gender',['male','female'])->default('male');
-            $table->date('date_birth');
+            $table->date('date_birth')->nullable();
             $table->string('phone_number');
             $table->foreignId('faculty_id')->nullable()->constrained('faculties','id')->nullOnDelete();
             $table->timestamps();
