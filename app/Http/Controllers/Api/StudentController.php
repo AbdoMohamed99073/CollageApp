@@ -26,7 +26,9 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(Student::rules());
+        $request->validate(Student::rules(), [
+            'unique' => 'The name is already exsist !',
+        ]);
 
 
        /* $val = $request->validate([
@@ -37,9 +39,9 @@ class StudentController extends Controller
             'price' => 'required|numeric|min:0',
             'compare_price' => 'nullable|numeric|min:0|gt:price',
         ]);*/
-        $product = Student::create($request->all());
+        $student = Student::create($request->all());
 
-        return response()->json($product , 201) ;
+        return response()->json($student , 201) ;
     }
 
     /**
@@ -47,7 +49,8 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $student = Student::findOrFail($id);
+        return new StudentResource($student);
     }
 
     /**
@@ -55,7 +58,19 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $student = Student::findOrFail($id);
+        $request->validate([
+            'name' => 'sometimes|required|string|max:255',
+            'faculty_id' => 'sometimes|required|exists:faculties,id',
+            'date_birth' => 'sometimes|required|date',
+            'gender' => 'in:male,female',
+            'phone_number' => 'sometimes|required|string|max:11',
+        ]);
+        $student->update($request->all());
+
+        return response()->json($student, 200 , [
+            'message' => 'Student Information updated'
+        ]) ;
     }
 
     /**
@@ -63,6 +78,10 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Student::destroy($id);
+
+        return response()->json([
+            'message' => 'Student Deleted',
+        ] , 200);
     }
 }

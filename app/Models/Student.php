@@ -74,6 +74,7 @@ class Student extends Model
     {
         return [
             'name' => [
+                Rule::unique('students', 'name')->ignore($id),
                 'required',
                 'string',
                 'max:255',
