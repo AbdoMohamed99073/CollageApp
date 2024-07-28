@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -11,3 +12,7 @@ Route::get('/user', function (Request $request) {
 
 
 Route::apiResource('/studentapi',StudentController::class);
+
+Route::apiResource('/teacherapi',TeacherController::class);
+
+Route::get('/courses', [TeacherController::class , 'getallst']);

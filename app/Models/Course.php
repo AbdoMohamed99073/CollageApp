@@ -14,6 +14,10 @@ class Course extends Model
         'teacher_id',
         'faculty_id',
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
 
     protected function teacher()
     {
