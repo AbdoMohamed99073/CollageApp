@@ -53,7 +53,7 @@ class Student extends Model
 
         $builder->when($options['course_id'], function ($builder, $value) {
             $builder->whereHas('courses', function ($builder, $value) {
-                $builder->where('id', $value);
+                $builder->where('student_id', $value);
             });
         });
 

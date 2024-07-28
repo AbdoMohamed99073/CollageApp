@@ -15,7 +15,7 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $students = Student::filter($request->query())
-            ->with('faculty:id,name' , 'courses:id,name')
+            ->with(['faculty:id,name' , 'courses:id,name'])
             ->paginate();
 
             return StudentResource::collection($students);

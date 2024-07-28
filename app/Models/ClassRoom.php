@@ -11,12 +11,12 @@ class ClassRoom extends Model
 
     public $incrementing = false;
 
-    protected function building()
+    public function building()
     {
         return $this->belongsTo(Buildings::class , 'Buliding_id');
     }
 
-    protected function faculty()
+    public function faculty()
     {
         return $this->belongsTo(Faculty::class , 'Faculty_id');
     }

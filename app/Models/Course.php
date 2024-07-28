@@ -19,11 +19,11 @@ class Course extends Model
         'updated_at'
     ];
 
-    protected function teacher()
+    public function teacher()
     {
         return $this->belongsTo(Teacher::class, 'teacher_id');
     }
-    protected function book()
+    public function book()
     {
         return $this->belongsTo(Book::class, 'book_id');
     }
