@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BookController;
+use App\Http\Controllers\Api\BuildingsController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\DashboardController;
@@ -17,6 +18,8 @@ Route::apiResource('/studentapi',StudentController::class);
 Route::apiResource('/teacherapi',TeacherController::class);
 
 Route::apiResource('/bookapi',BookController::class);
+
+Route::apiResource('/bulidingapi',BuildingsController::class);
 
 
 Route::get('/courses', [TeacherController::class , 'getallst']);

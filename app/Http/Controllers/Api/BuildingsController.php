@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Buildings;
 use Illuminate\Http\Request;
 
 class BuildingsController extends Controller
@@ -10,9 +11,12 @@ class BuildingsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $products =  Buildings::filter($request->query())
+        ->with('faculty:id', 'collage', 'classroom')
+        ->paginate();
+    return $products;
     }
 
     /**

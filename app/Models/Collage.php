@@ -13,12 +13,13 @@ class Collage extends Model
         'location',
         'totalStudent',
         'image',
-        'user_id',
-        'created_at',
+
     ];
 
     protected $hidden = [
         'updated_at',
+        'user_id',
+        'created_at',
     ];
 
 
