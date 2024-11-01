@@ -31,14 +31,14 @@ class StudentController extends Controller
         ]);
 
 
-       /* $val = $request->validate([
+       $val = $request->validate([
             'name' => 'required|string|max:255',
             'category_id' => 'required|exists:categories,id',
             'description' => 'nullable|string|max:255',
             'status' => 'in:active,archived',
             'price' => 'required|numeric|min:0',
             'compare_price' => 'nullable|numeric|min:0|gt:price',
-        ]);*/
+        ]);
         $student = Student::create($request->all());
 
         return response()->json($student , 201) ;
